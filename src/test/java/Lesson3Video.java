@@ -23,6 +23,19 @@ public class Lesson3Video {
 
     sleep(3000);
     }
+
+    @Test
+    public void HomeWorkLesson3(){
+
+        open("https://github.com/selenide/selenide");
+        $x("//span[text()='Wiki']").click();
+        $x("//div[@class='wiki-rightbar']").shouldHave(text("SoftAssertions"));
+        $x("//a[text()='SoftAssertions']").click();
+        $x("//div[@id='wiki-wrapper']").shouldHave(text("JUnit5 extension"));
+
+        sleep(3000);
+    }
+
 }
 
 
