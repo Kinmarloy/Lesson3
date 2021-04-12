@@ -1,33 +1,21 @@
+import com.codeborne.selenide.*;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Lesson3Video {
+
+
+public class Lesson3Video extends TestBase {
 
     @Test
-    public void lesson3VideoWork(){
+    public void HomeWorkLesson3 () {
 
-        open("https://github.com/selenide/selenide");
-
-        //навести мышку на первый значек в Contributors
-        $x("//ul[@class='list-style-none d-flex flex-wrap mb-n2']/li").shouldBe(visible).hover();
-
-        //не подключается findBy!
-        //$x("//div[contains(@class,'Popover-message Popover-message')]").FindBy(visible);
-        $x("//a[@class='f5 text-bold Link--primary no-underline']").shouldHave(text("Andrei Solntsev"));
-
-
-
-
-    sleep(3000);
-    }
-
-    @Test
-    public void HomeWorkLesson3(){
-
-        open("https://github.com/selenide/selenide");
+        //open("https://github.com/");
+        $x("//input[@name='q']").setValue("selenide").pressEnter();
+        $x("//ul[@class='repo-list']/li").shouldHave(text("selenide/selenide"));
+        $x("//ul[@class='repo-list']/li//a").click();
         $x("//span[text()='Wiki']").click();
         $x("//div[@class='wiki-rightbar']").shouldHave(text("SoftAssertions"));
         $x("//a[text()='SoftAssertions']").click();
